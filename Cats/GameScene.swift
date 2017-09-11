@@ -17,8 +17,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
     var cat: SKSpriteNode?
+    let cat_speed: Double = 2.0
     var dogs: [SKSpriteNode?] = []
-    let dog_speed: CGFloat = 1.5
+    let dog_speed: CGFloat = 2.0
     var motionManager: CMMotionManager?
     var audioPlayer: AVAudioPlayer?
     
@@ -56,7 +57,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
                     let attitude = data?.attitude
                     let roll = attitude?.roll
                     let pitch = attitude?.pitch
-                    self.physicsWorld.gravity = CGVector(dx: pitch! * 3, dy: roll! * 3)
+                    self.physicsWorld.gravity = CGVector(dx: pitch! * self.cat_speed, dy: roll! * self.cat_speed)
                     
                     
                     //move dog towards cat
