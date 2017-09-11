@@ -46,6 +46,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         // Set up BMG
         self.playBacgroundMusic()
         
+        
         //control cat
         
         motionManager = CMMotionManager()
@@ -125,9 +126,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     }
     
     func gameOver(won: Bool){
+        audioPlayer?.stop()
         let reveal = SKTransition.fade(withDuration: 0.5)
         let gameOverScene = GameOverScene(size: self.size, won: won)
         self.view?.presentScene(gameOverScene, transition: reveal)
+        
+        
     }
     func didBegin(_ contact: SKPhysicsContact) {
         var firstBody: SKPhysicsBody

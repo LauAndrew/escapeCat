@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CE0CFA711F664F1000D51637 /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0CFA701F664F1000D51637 /* GameOverScene.swift */; };
+		CE0CFA771F66DD2A00D51637 /* GameOverView.sks in Resources */ = {isa = PBXBuildFile; fileRef = CE0CFA761F66DD2A00D51637 /* GameOverView.sks */; };
 		CE1CF7FC1F6481EA00F78D39 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1CF7FB1F6481EA00F78D39 /* AppDelegate.swift */; };
 		CE1CF7FE1F6481EA00F78D39 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = CE1CF7FD1F6481EA00F78D39 /* GameScene.sks */; };
 		CE1CF8001F6481EA00F78D39 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = CE1CF7FF1F6481EA00F78D39 /* Actions.sks */; };
@@ -40,6 +41,7 @@
 
 /* Begin PBXFileReference section */
 		CE0CFA701F664F1000D51637 /* GameOverScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
+		CE0CFA761F66DD2A00D51637 /* GameOverView.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameOverView.sks; sourceTree = "<group>"; };
 		CE1CF7F81F6481EA00F78D39 /* Cats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cats.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE1CF7FB1F6481EA00F78D39 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE1CF7FD1F6481EA00F78D39 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				CE1CF80D1F6481EB00F78D39 /* Info.plist */,
 				CE1CF8311F661FA300F78D39 /* bmg.mp3 */,
 				CE0CFA701F664F1000D51637 /* GameOverScene.swift */,
+				CE0CFA761F66DD2A00D51637 /* GameOverView.sks */,
 			);
 			path = Cats;
 			sourceTree = "<group>";
@@ -250,6 +253,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE0CFA771F66DD2A00D51637 /* GameOverView.sks in Resources */,
 				CE1CF8071F6481EA00F78D39 /* Main.storyboard in Resources */,
 				CE1CF7FE1F6481EA00F78D39 /* GameScene.sks in Resources */,
 				CE1CF8091F6481EB00F78D39 /* Assets.xcassets in Resources */,
