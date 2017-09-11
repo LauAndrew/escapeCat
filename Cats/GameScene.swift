@@ -8,13 +8,30 @@
 
 import SpriteKit
 import GameplayKit
+import CoreMotion
 
 class GameScene: SKScene {
     
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
+    var cat: SKSpriteNode?
+    var dogs: [SKSpriteNode?] = []
+    var motionManager: CMMotionManager?
     
     override func didMove(to view: SKView) {
+        
+        // Setup Cat
+        cat = self.childNode(withName: "muffin") as? SKSpriteNode
+        
+        // Setup Dog
+        for child in self.children {
+            if child.name == "marco" {
+                if let child = child as? SKSpriteNode {
+                    dogs.append(child)
+                }
+            }
+        }
+        
         
         // Get label node from scene and store it for use later
         self.label = self.childNode(withName: "//helloLabel") as? SKLabelNode
@@ -35,8 +52,37 @@ class GameScene: SKScene {
                                               SKAction.fadeOut(withDuration: 0.5),
                                               SKAction.removeFromParent()]))
         }
+        
+        //control cat
+        
+        motionManager = CMMotionManager()
+        if let manager = motionManager {
+            if manager.isDeviceMotionAvailable {
+                let myq = OperationQueue()
+                manager.deviceMotionUpdateInterval = 0.5
+                manager.startDeviceMotionUpdates(to: myq){
+                    (data: CMDeviceMotion?, error: Error?) in
+                    let attitude = data?.attitude
+                    let roll = attitude?.roll
+                    let pitch = attitude?.pitch
+                    
+                    print("Roll : ", roll!, "Pitch : ", pitch!)
+                    self.physicsWorld.gravity = CGVector(dx: pitch! * 2, dy: roll! * 2)
+                }
+            }
+            else {
+                print("We cannot detect motion")
+            }
+        }
+        else {
+            print("No manager")
+        }
+        
     }
     
+    func degrees(radians: Double) -> Double {
+        return 180/Double.pi * radians
+    }
     
     func touchDown(atPoint pos : CGPoint) {
         if let n = self.spinnyNode?.copy() as! SKShapeNode? {
