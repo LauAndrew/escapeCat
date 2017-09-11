@@ -17,6 +17,7 @@
 		CE1CF80C1F6481EB00F78D39 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE1CF80A1F6481EB00F78D39 /* LaunchScreen.storyboard */; };
 		CE1CF8171F6481EB00F78D39 /* CatsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1CF8161F6481EB00F78D39 /* CatsTests.swift */; };
 		CE1CF8221F6481EB00F78D39 /* CatsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1CF8211F6481EB00F78D39 /* CatsUITests.swift */; };
+		CE1CF8321F661FA300F78D39 /* bmg.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CE1CF8311F661FA300F78D39 /* bmg.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		CE1CF81D1F6481EB00F78D39 /* CatsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CatsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE1CF8211F6481EB00F78D39 /* CatsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsUITests.swift; sourceTree = "<group>"; };
 		CE1CF8231F6481EB00F78D39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE1CF8311F661FA300F78D39 /* bmg.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bmg.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				CE1CF8081F6481EB00F78D39 /* Assets.xcassets */,
 				CE1CF80A1F6481EB00F78D39 /* LaunchScreen.storyboard */,
 				CE1CF80D1F6481EB00F78D39 /* Info.plist */,
+				CE1CF8311F661FA300F78D39 /* bmg.mp3 */,
 			);
 			path = Cats;
 			sourceTree = "<group>";
@@ -247,6 +250,7 @@
 				CE1CF8071F6481EA00F78D39 /* Main.storyboard in Resources */,
 				CE1CF7FE1F6481EA00F78D39 /* GameScene.sks in Resources */,
 				CE1CF8091F6481EB00F78D39 /* Assets.xcassets in Resources */,
+				CE1CF8321F661FA300F78D39 /* bmg.mp3 in Resources */,
 				CE1CF80C1F6481EB00F78D39 /* LaunchScreen.storyboard in Resources */,
 				CE1CF8001F6481EA00F78D39 /* Actions.sks in Resources */,
 			);

@@ -9,6 +9,7 @@
 import SpriteKit
 import GameplayKit
 import CoreMotion
+import AVFoundation
 
 class GameScene: SKScene {
     
@@ -16,7 +17,9 @@ class GameScene: SKScene {
     private var spinnyNode : SKShapeNode?
     var cat: SKSpriteNode?
     var dogs: [SKSpriteNode?] = []
+    let dog_speed: CGFloat = 3.0
     var motionManager: CMMotionManager?
+    var audioPlayer: AVAudioPlayer?
     
     override func didMove(to view: SKView) {
         
@@ -32,6 +35,8 @@ class GameScene: SKScene {
             }
         }
         
+        // Set up BMG
+        self.playBacgroundMusic()
         
         // Get label node from scene and store it for use later
         self.label = self.childNode(withName: "//helloLabel") as? SKLabelNode
@@ -59,15 +64,29 @@ class GameScene: SKScene {
         if let manager = motionManager {
             if manager.isDeviceMotionAvailable {
                 let myq = OperationQueue()
-                manager.deviceMotionUpdateInterval = 0.5
                 manager.startDeviceMotionUpdates(to: myq){
                     (data: CMDeviceMotion?, error: Error?) in
                     let attitude = data?.attitude
                     let roll = attitude?.roll
                     let pitch = attitude?.pitch
+                    self.physicsWorld.gravity = CGVector(dx: pitch! * 3, dy: roll! * 3)
                     
-                    print("Roll : ", roll!, "Pitch : ", pitch!)
-                    self.physicsWorld.gravity = CGVector(dx: pitch! * 2, dy: roll! * 2)
+                    
+                    //move dog towards cat
+                    for dog in self.dogs{
+                        let dx = (self.cat?.position.x)! - (dog?.position.x)!
+                        let dy = (self.cat?.position.y)! - (dog?.position.y)!
+                        if dx < 10 || dy < 10 {
+                            let angle = atan2(dy, dx)
+                            //print("angle : ", self.degrees(radians: Double(angle)))
+                            //dog?.zRotation = angle
+                            let vx = cos(angle) * self.dog_speed
+                            let vy = sin(angle) * self.dog_speed
+                        
+                            dog?.position.x += vx
+                            dog?.position.y += vy
+                        }
+                    }
                 }
             }
             else {
@@ -82,6 +101,18 @@ class GameScene: SKScene {
     
     func degrees(radians: Double) -> Double {
         return 180/Double.pi * radians
+    }
+    
+    func playBacgroundMusic(){
+        let aSound = NSURL(fileURLWithPath: Bundle.main.path(forResource: "bmg", ofType: "mp3")!)
+        do{
+            audioPlayer = try AVAudioPlayer(contentsOf: aSound as URL)
+            audioPlayer?.numberOfLoops = -1 //loop
+            audioPlayer?.prepareToPlay()
+            audioPlayer?.play()
+        } catch {
+            print("Cannot play the file")
+        }
     }
     
     func touchDown(atPoint pos : CGPoint) {
